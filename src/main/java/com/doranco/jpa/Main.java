@@ -20,7 +20,7 @@ public class Main {
         stock.setDatearrivee(new Date());
         stock.setDlc(new Date());
         stock.setDatesortie(new Date());
-        
+        session.save(stock);
         session.getTransaction().commit();
     }
     
