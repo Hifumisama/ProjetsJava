@@ -1,5 +1,6 @@
 package com.doranco.jpa.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,24 +8,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @Entity
 @Table
-public class Stock {
+public class Stock implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
     @Column
-    private String typeStock;
+    private TYPE_STOCK typeStock;
     @Column
     private String name;
     @Column
     private long quantite;
     @Column
+    @Temporal(TemporalType.DATE)
     private Date datearrivee;
     @Column
+    @Temporal(TemporalType.DATE)
     private Date dlc;
     @Column
+    @Temporal(TemporalType.DATE)
     private Date datesortie;
 
     public Date getDatesortie() {
@@ -43,11 +50,11 @@ public class Stock {
         this.id = id;
     }
 
-    public String getTypeStock() {
+    public TYPE_STOCK getTypeStock() {
         return typeStock;
     }
 
-    public void setTypeStock(String typeStock) {
+    public void setTypeStock(TYPE_STOCK typeStock) {
         this.typeStock = typeStock;
     }
 
